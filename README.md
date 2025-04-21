@@ -26,7 +26,7 @@ To run this project on your own machine:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/ruthannjdev/alpaca-avatar-maker.git
+   git clone https://github.com/RuthAnnJDev/alpaca-avatar-maker.git
    cd alpaca-avatar-maker
 Open the project using a local development server:
 
