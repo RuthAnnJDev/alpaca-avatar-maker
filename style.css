@@ -1,0 +1,643 @@
+/* Light theme (default) */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #222;
+    transition: background 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Dark theme */
+body.dark {
+    background-color: #121212;
+    color: #6c63ff;
+}
+
+/* Toggle Switch Styling */
+.theme-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #6c63ff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    background: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-width: 200px;
+    z-index: 1000;
+  }
+  
+
+/* Base Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed at the center of the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Prevent scrolling within the modal */
+}
+
+/* Modal Content Styling */
+.modal-content {
+    background-color: #fff; /* White background for the modal */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    width: 90%;
+    max-width: 400px; /* Limit the width to make it look neat on all screens */
+    box-sizing: border-box;
+    max-height: 80vh; /* Maximum height for modal content */
+    overflow-y: auto; /* Allows content to scroll within the modal if needed */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+/* Modal Header */
+h2 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Input Fields */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Show Sign-Up/Sign-In Links */
+#show-sign-up,
+#show-sign-in {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#sign-up-form,
+#sign-in-form {
+    display: block;
+}
+
+/* Responsive Modal Design */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+  
+
+/* Alpaca Preview */
+#alpaca-preview {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 1.5rem auto;
+    background-color: white;
+    border: 2px dashed #ccc;
+    overflow: hidden;
+}
+
+#alpaca-preview img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.backgrounds  { z-index: 0; }
+.neck         { z-index: 1; }
+.legs         { z-index: 2; }
+.hair         { z-index: 3; }
+.ears         { z-index: 4; }
+.eyes         { z-index: 5; }
+.nose         { z-index: 6; }
+.mouth        { z-index: 7; }
+.accessories  { z-index: 8; }
+
+#alpaca-name {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#alpaca-name label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+#alpaca-name input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+
+/* Controls and Buttons */
+.controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.favorites-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.favorites-controls button,
+.favorites-controls select {
+    margin: 0 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin: 0 10px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #6c63ff;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #5848d1;
+}
+
+#manual-customizer {
+    margin-top: 2rem;
+}
+
+/* Customization Controls */
+#customization-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Center customization content */
+.customizer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items to the center */
+}
+
+.customizer-item label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #333;
+    text-align: center; /* Center text for labels */
+}
+
+.customizer-item select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: border-color 0.2s ease;
+    text-align: center; /* Center text inside dropdowns */
+}
+
+.customizer-item select:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+
+.customizer-group {
+    margin-bottom: 2rem;
+    text-align: center; /* Align header text for the group */
+}
+
+.customizer-group h3 {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3rem;
+}
+
+.reset-button {
+    margin-top: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    background-color: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.reset-button:hover {
+    background-color: #ddd;
+}
+
+.customizer-group {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+/* Accordion Header */
+.accordion-header {
+    background-color: #e0e0e0;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center; /* Center text for accordion header */
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #d0d0d0;
+}
+
+/* Accordion Content */
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    background-color: #fafafa;
+}
+
+.customizer-group.open .accordion-content {
+    display: block;
+}
+
+/* Basic modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15% auto;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+/* Form styling */
+form input, form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Consolidate modal-related styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    /*overflow: hidden;*/
+}
+
+/* Modal Content Styling */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+  
+  /* Close Button */
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+  }
+  
+  /* Modal Header */
+  h2 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Input Fields */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="text"]:focus {
+    border-color: #007bff;
+  }
+  
+  /* Buttons */
+  button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Links */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Show Sign-Up/Sign-In Links */
+  #show-sign-up,
+  #show-sign-in {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  #sign-up-form,
+  #sign-in-form {
+    display: block;
+  }
+  
+  /* Responsive Modal Design */
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+
+  .form-message {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+  
+  
+  .error { color: red; }
+  .success { color: green; }
+  .info { color: #333; }
+  

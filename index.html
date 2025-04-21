@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alpaca Image Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="theme-switch" />
+      <span class="slider"></span>
+    </label>
+    <span id="theme-label">☀️ Light Mode</span>
+  </header>
+
+  <main>
+    <div id="user-profile" class="profile-dropdown" style="display: none;">
+      <p id="profile-name">John Doe</p>
+      <p id="profile-email">john@example.com</p>
+      <hr />
+      <button id="logout-btn" type="button">Log Out</button>
+      <button id="delete-profile-btn" class="danger" type="button">Delete Profile</button>
+    </div>
+
+    <button id="profile-toggle" type="button" style="display: none;">Profile</button>
+
+    <h1>🦙 Alpaca Image Generator</h1>
+
+    <section id="alpaca-preview"></section>
+
+    <section id="manual-customizer" class="section">
+      <h2>🎨 Customize Your Alpaca</h2>
+      <div id="customization-controls"></div>
+    </section>
+
+    <section id="alpaca-name">
+      <label for="alpaca-name-input">Alpaca Name:</label>
+      <input type="text" id="alpaca-name-input" placeholder="Enter name" />
+    </section>
+
+    <div class="controls">
+      <button id="randomize" type="button">🎲 Randomize</button>
+      <button id="download" type="button">⬇️ Download</button>
+    </div>
+
+    <div class="favorites-controls">
+      <button id="save-favorite" type="button">💾 Save Favorite</button>
+      <select id="load-favorite">
+        <option value="">⭐ Load Favorite</option>
+      </select>
+      <button id="undo" type="button">↩️ Undo</button>
+    </div>
+  </main>
+
+  <!-- Modal for Authentication -->
+  <div id="auth-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-form-container">
+    <div class="modal-content">
+      <span id="modal-close" class="close" role="button" tabindex="0" aria-label="Close modal">&times;</span>
+      <div id="auth-form-container">
+
+        <!-- Sign-In Form -->
+        <div id="sign-in-form">
+          <h2>Sign In</h2>
+          <form id="sign-in">
+            <input type="email" id="sign-in-email" placeholder="Email" required />
+            <input type="password" id="sign-in-password" placeholder="Password" required />
+            <button type="submit" id="sign-in-btn">Sign In</button>
+            <div id="sign-in-message" class="form-message"></div>
+          </form>
+          <p><a href="#" id="forgot-password-link">Forgot password?</a></p>
+          <p>Don't have an account? <a href="javascript:void(0);" id="show-sign-up">Sign Up</a></p>
+        </div>
+
+        <!-- Sign-Up Form -->
+        <div id="sign-up-form-wrapper" style="display: none;">
+          <h2>Sign Up</h2>
+          <form id="sign-up">
+            <input type="text" id="name" name="name" placeholder="Full Name" required />
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <input type="password" id="password" name="password" placeholder="Password" required />
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required />
+            <div id="sign-up-message" class="form-message"></div>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="javascript:void(0);" id="show-sign-in">Sign In</a></p>
+          </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgot-password-wrapper" style="display: none;">
+          <form id="forgot-password-form">
+            <h3>Reset Password</h3>
+            <input type="email" id="forgot-email" placeholder="Enter your email" required />
+            <input type="password" id="new-password" placeholder="New password" required />
+            <input type="password" id="confirm-new-password" placeholder="Confirm password" required />
+            <button type="submit">Reset Password</button>
+            <div class="form-message" id="forgot-password-msg"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
